@@ -82,6 +82,21 @@ public class RandomGenerator extends AndroidNonvisibleComponent {
             return retur;
         }
 
+    }    @SimpleFunction(description = "Generate random string with special character for given length")
+    public String SpecialCharacter(int length){
+        if (length<1)
+            throw new YailRuntimeError("length cant be 0","length error");
+        else {
+            String retur = "";
+
+            String[] specialchar="!,@,#,$,%,&,*,?,>,<".split(",");
+            for (int i=0;i<length;i++){
+                Random r = new Random();
+                retur=retur+specialchar[r.nextInt(specialchar.length)];
+            }
+            return retur;
+        }
+
     }
 
  }
